@@ -33,7 +33,7 @@ import {
 } from '@mui/icons-material';
 import { styled } from '@mui/material/styles';
 import axios from 'axios';
-
+const apiBaseUrl = process.env.REACT_APP_API_URL;
 const academicMajorOptions = [
   "Aerospace Technologies and Engineering", "Art", "Business Management", "Chemical Engineering",
   "Civil Engineering", "Communications", "Chemistry", "Biochemistry", "Computer Science",
@@ -191,10 +191,10 @@ const Register = ({ onRegister }) => {
     });
 
     try {
-      const response = await axios.post('http://localhost:8000/register', payload);
+      const response = await axios.post('${apiBaseUrl}/register', payload);
       if (response.data && response.data.email) {
         setSuccess('Registration successful! Logging you in...');
-        const loginResponse = await axios.post('http://localhost:8000/login', {
+        const loginResponse = await axios.post('${apiBaseUrl}/login', {
           email: payload.email,
           password: payload.password
         });
