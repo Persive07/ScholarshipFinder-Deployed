@@ -23,7 +23,7 @@ import {
 } from '@mui/icons-material';
 import { styled } from '@mui/material/styles';
 import axios from 'axios';
-
+const apiBaseUrl = process.env.REACT_APP_API_URL;
 // Styled components for enhanced customization
 const GradientBox = styled(Box)(({ theme }) => ({
   minHeight: '100vh',
@@ -136,7 +136,7 @@ const Login = ({ onLogin }) => {
     setError('');
     
     try {
-      const response = await axios.post('http://localhost:8000/login', formData);
+      const response = await axios.post('${apiBaseUrl}/login', formData);
       if (response.data && response.data.email) {
         onLogin(response.data);
       } else if (response.data && response.data.user) {
