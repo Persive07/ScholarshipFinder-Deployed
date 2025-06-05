@@ -39,7 +39,7 @@ import {
   TuneRounded
 } from '@mui/icons-material';
 import { styled } from '@mui/material/styles';
-
+const apiBaseUrl = process.env.REACT_APP_API_URL;
 const academicMajorOptions = [
   "Aerospace Technologies and Engineering", "Art", "Business Management", "Chemical Engineering",
   "Civil Engineering", "Communications", "Chemistry", "Biochemistry", "Computer Science",
@@ -251,7 +251,7 @@ const Profile = ({ user, onLogout, onUserUpdate }) => {
       });
 
       const response = await axios.put(
-        `http://localhost:8000/users/${user._id || user.id}`,
+        `${apiBaseUrl}/users/${user._id || user.id}`,
         updateData
       );
       setIsEditing(false);
@@ -285,7 +285,7 @@ const Profile = ({ user, onLogout, onUserUpdate }) => {
     setError('');
     setSuccess('');
     try {
-      await axios.delete(`http://localhost:8000/users/${user._id || user.id}`);
+      await axios.delete(`${apiBaseUrl}/users/${user._id || user.id}`);
       setSuccess('Profile deleted. Logging out...');
       setTimeout(() => {
         onLogout();
