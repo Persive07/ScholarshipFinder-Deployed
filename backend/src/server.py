@@ -9,7 +9,7 @@ import hashlib
 from pydantic import BaseModel, EmailStr, Field
 from dotenv import load_dotenv
 from contextlib import asynccontextmanager
-from dal import (
+from src.dal import (
     ScholarshipDAL, 
     UserProfile,
     UserProfileUpdate,
@@ -23,7 +23,7 @@ from dal import (
     SATScoreRange
 )
 from bson import ObjectId
-from recommendation import generate_recommendations
+from src.recommendation import generate_recommendations
 
 
 
