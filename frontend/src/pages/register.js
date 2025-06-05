@@ -191,10 +191,10 @@ const Register = ({ onRegister }) => {
     });
 
     try {
-      const response = await axios.post('${apiBaseUrl}/register', payload);
+      const response = await axios.post(`${apiBaseUrl}/register`, payload);
       if (response.data && response.data.email) {
         setSuccess('Registration successful! Logging you in...');
-        const loginResponse = await axios.post('${apiBaseUrl}/login', {
+        const loginResponse = await axios.post(`${apiBaseUrl}/login`, {
           email: payload.email,
           password: payload.password
         });
