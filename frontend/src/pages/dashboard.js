@@ -31,6 +31,8 @@ import Recommended from './reco';
 import Browse from './browse';
 import Profile from './profile';
 
+const apiBaseUrl = process.env.REACT_APP_API_URL;
+
 // Styled components for enhanced customization
 const StyledAppBar = styled(AppBar)(({ theme }) => ({
   background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
