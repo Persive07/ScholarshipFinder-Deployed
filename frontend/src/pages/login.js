@@ -136,7 +136,7 @@ const Login = ({ onLogin }) => {
     setError('');
     
     try {
-      const response = await axios.post('${apiBaseUrl}/login', formData);
+      const response = await axios.post(`${apiBaseUrl}/login`, formData);
       if (response.data && response.data.email) {
         onLogin(response.data);
       } else if (response.data && response.data.user) {
