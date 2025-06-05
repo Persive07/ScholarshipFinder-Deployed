@@ -38,7 +38,7 @@ import {
 } from '@mui/icons-material';
 import { format } from 'date-fns';
 import { styled } from '@mui/material/styles';
-
+const apiBaseUrl = process.env.REACT_APP_API_URL;
 // Styled components matching Browse tab
 const CompactHeader = styled(Box)(({ theme }) => ({
   background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
